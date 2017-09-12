@@ -1,0 +1,26 @@
+<?php
+
+class IndexController extends ControllerBase
+{
+
+     public function initialize()
+    {
+    }
+    public function indexAction()
+    {
+$data = $_POST['image'];
+
+list($type, $data) = explode(';', $data);
+list(, $data)      = explode(',', $data);
+
+$data = base64_decode($data);
+$imageName = time().'.png';
+file_put_contents('upload/'.$imageName, $data);
+
+echo 'done';
+    }
+   
+    
+
+}
+
